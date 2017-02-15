@@ -1,0 +1,7 @@
+{
+	"elements":
+	[
+		{ "name": "Solar Log Path",        "type": "ValidationTextBox", "caption": "Solar Log Path" },		
+		{ "name": "Debug",        			"type": "CheckBox", "caption": "Debug" },		
+	]	
+}

@@ -1,0 +1,14 @@
+{
+	"id": "{02FB746E-2665-40F1-B2B4-01379EB9DE8F}",
+	"name": "SMA_Gateway",
+	"type": 3,
+	"vendor": "KH-Solutions",
+	"aliases": 
+	[
+		"SMA_Gateway"
+	],
+	"parentRequirements": [],
+	"childRequirements": [],
+	"implemented": [],
+	"prefix": "SMA_Gateway"
+}
