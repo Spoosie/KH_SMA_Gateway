@@ -132,28 +132,37 @@ class SMA_Gateway extends IPSModule
     public function getSolarLog()
     {
         $baseURL = $this->ReadPropertyString("SolarLogPath");
+				
         IPS_LogMessage($this->moduleName,"Retrieving '".$baseURL."'");
 
         $solarLog = file_get_contents($baseURL);
-// Testskript
-//        $solarLog = file_get_contents("c:/IP-Symcon/scripts/solar.log");
 
-        $solarLog = utf8_decode($solarLog);
-        $logArray = explode("\n",$solarLog);
+		if ($solarLog == false)
+		{
+            IPS_LogMessage($this->moduleName,"Could not open '".$baseURL."'");
+            return NULL;
+		}
+
+        // Leerzeilen entfernen
+		$solarLog = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $solarLog);
+		$solarLog = utf8_decode($solarLog);
+        $logArray = explode("\n",$solarLog,-1);	// -1 => Letzten Umbruch nicht in Array wandeln
         $logArraySize = sizeof($logArray);
+		
 
         if ($this->ReadPropertyBoolean("Debug"))
         {
-            IPS_LogMessage($this->moduleName,print_r($logArray));
-            IPS_LogMessage($this->moduleName,"Array size =".$logArraySize);
+            IPS_LogMessage($this->moduleName,print_r($logArray,true));
+            IPS_LogMessage($this->moduleName,"Array size = ".$logArraySize);
+			IPS_LogMessage($this->moduleName,"Last row=".$logArray[$logArraySize-1]);
         }
 
         // In letzter Zeile sollte sich ein
         // INFO: Done.
         // befinden
-        if (strpos($logArray[$logArraySize-2], "INFO: Done.") !== false)
+        if (strpos($logArray[$logArraySize-1], "INFO: Done.") === false)
         {
-            IPS_LogMessage($this->moduleName,"solar.log incomplete!");
+            IPS_LogMessage($this->moduleName,"'".$baseURL."' incomplete!");
             return NULL;
         }
 
@@ -168,7 +177,9 @@ class SMA_Gateway extends IPSModule
         if ($solarLog == NULL)
             return;
 
-        IPS_LogMessage($this->moduleName,"Updating devices from solar.log...");
+		$baseURL = $this->ReadPropertyString("SolarLogPath");
+
+        IPS_LogMessage($this->moduleName,"Updating devices from '".$baseURL."'");
         $sn = false;
 
         // Geräte auflisten
@@ -336,7 +347,7 @@ class SMA_Gateway extends IPSModule
 
         if ( '' != $Ident )
            IPS_SetIdent( $VarID, $Ident );
-           
+
         $this->SetVariable( $VarID, $Type, $Value );
 
         if ($Profil != "")

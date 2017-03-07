@@ -1,8 +1,10 @@
 {
         "elements":
         [
-                { "name": "SolarLogPath",        "type": "ValidationTextBox",   "caption": "Solar Log Path" },
+                { "name": "SolarLogPath",        "type": "ValidationTextBox",   "caption": "Solar Log Pfad" },
                 { "name": "UpdateIntervall",     "type": "IntervalBox" ,        "caption": "Sekunden" },
                 { "name": "Debug",               "type": "CheckBox",            "caption": "Debug" },
+
+ 
         ]
 }
