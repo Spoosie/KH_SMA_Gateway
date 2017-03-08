@@ -11,7 +11,7 @@ class SMA_Gateway extends IPSModule
                array ("pattern" => "/Software Version: (.*)/", "result" => array(array("id" => 1 ,"parameter" => "Software Version","type" => 3))),
                array ("pattern" => "/Serial number: (.*)/", "result" => array(array("id" => 1 ,"parameter" => "Serial Number","type" => 3))),
                array ("pattern" => "/Device Status: (.*)/", "result" => array(array("id" => 1 ,"parameter" => "Device Status","type" => 3))),
-               array ("pattern" => "/Device Temperature: (.*)∞C/", "result" => array(array("id" => 1 ,"parameter" => "Device Temperature","profileSuffix" => "Temperature","type" => 2))),
+               array ("pattern" => "/Device Temperature: (.*)¬∞C/", "result" => array(array("id" => 1 ,"parameter" => "Device Temperature","profileSuffix" => "Temperature","type" => 2))),
                array ("pattern" => "/GridRelay Status: (.*)/", "result" => array(array("id" => 1 ,"parameter" => "GridRelay Status","type" => 3))),
                array ("pattern" => "/Pac max phase 1: (.*)W/", "result" => array(array("id" => 1 ,"parameter" => "Pac max phase 1","profileSuffix" => "PowerW","type" => 2))),
                array ("pattern" => "/Pac max phase 2: (.*)W/", "result" => array(array("id" => 1 ,"parameter" => "Pac max phase 2","profileSuffix" => "PowerW","type" => 2))),
@@ -25,10 +25,10 @@ class SMA_Gateway extends IPSModule
                array ("pattern" => "/String 1 Pdc: (.*)kW - Udc: (.*)V - Idc: (.*)A/", "result" => array(array("id" => 1 ,"parameter" => "String 1 Power DC","profileSuffix" => "PowerkW","type" => 2),array("id" => 2 ,"parameter" => "String 1 Voltage DC","profileSuffix" => "Voltage","type" => 2),array("id" => 3 ,"parameter" => "String 1 Current DC","profileSuffix" => "Current","type" => 2))),
                array ("pattern" => "/String 2 Pdc: (.*)kW - Udc: (.*)V - Idc: (.*)A/", "result" => array(array("id" => 1 ,"parameter" => "String 2 Power DC","profileSuffix" => "PowerkW","type" => 2),array("id" => 2 ,"parameter" => "String 2 Voltage DC","profileSuffix" => "Voltage","type" => 2),array("id" => 3 ,"parameter" => "String 2 Current DC","profileSuffix" => "Current","type" => 2))),
 
-               array ("pattern" => "/Phase 1 Pac: (.*)kW - Uac: (.*)V - Iac: (.*)A/", "result" => array(array("id" => 1 ,"parameter" => "Phase 1 Power AC","profileSuffix" => "PowerkW","type" => 2),array("id" => 2 ,"parameter" => "Phase 1 Voltage AC","profileSuffix" => "Voltage","type" => 2),array("id" => 3 ,"parameter" => "Phase 1 Current AC","profileSuffix" => "Current","type" => 2))),
-               array ("pattern" => "/Phase 2 Pac: (.*)kW - Uac: (.*)V - Iac: (.*)A/", "result" => array(array("id" => 1 ,"parameter" => "Phase 2 Power AC","profileSuffix" => "PowerkW","type" => 2),array("id" => 2 ,"parameter" => "Phase 2 Voltage AC","profileSuffix" => "Voltage","type" => 2),array("id" => 3 ,"parameter" => "Phase 2 Current AC","profileSuffix" => "Current","type" => 2))),
-               array ("pattern" => "/Phase 3 Pac: (.*)kW - Uac: (.*)V - Iac: (.*)A/", "result" => array(array("id" => 1 ,"parameter" => "Phase 3 Power AC","profileSuffix" => "PowerkW","type" => 2),array("id" => 2 ,"parameter" => "Phase 3 Voltage AC","profileSuffix" => "Voltage","type" => 2),array("id" => 3 ,"parameter" => "Phase 3 Current AC","profileSuffix" => "Current","type" => 2))),
-               array ("pattern" => "/Total Pac : (.*)kW/", "result" => array(array("id" => 1 ,"parameter" => "Total Power AC","profileSuffix" => "kW","type" => 2))),
+               array ("pattern" => "/Phase 1 Pac : (.*)kW - Uac: (.*)V - Iac: (.*)A/", "result" => array(array("id" => 1 ,"parameter" => "Phase 1 Power AC","profileSuffix" => "PowerkW","type" => 2),array("id" => 2 ,"parameter" => "Phase 1 Voltage AC","profileSuffix" => "Voltage","type" => 2),array("id" => 3 ,"parameter" => "Phase 1 Current AC","profileSuffix" => "Current","type" => 2))),
+               array ("pattern" => "/Phase 2 Pac : (.*)kW - Uac: (.*)V - Iac: (.*)A/", "result" => array(array("id" => 1 ,"parameter" => "Phase 2 Power AC","profileSuffix" => "PowerkW","type" => 2),array("id" => 2 ,"parameter" => "Phase 2 Voltage AC","profileSuffix" => "Voltage","type" => 2),array("id" => 3 ,"parameter" => "Phase 2 Current AC","profileSuffix" => "Current","type" => 2))),
+               array ("pattern" => "/Phase 3 Pac : (.*)kW - Uac: (.*)V - Iac: (.*)A/", "result" => array(array("id" => 1 ,"parameter" => "Phase 3 Power AC","profileSuffix" => "PowerkW","type" => 2),array("id" => 2 ,"parameter" => "Phase 3 Voltage AC","profileSuffix" => "Voltage","type" => 2),array("id" => 3 ,"parameter" => "Phase 3 Current AC","profileSuffix" => "Current","type" => 2))),
+               array ("pattern" => "/Total Pac   : (.*)kW/", "result" => array(array("id" => 1 ,"parameter" => "Total Power AC","profileSuffix" => "kW","type" => 2))),
 
                array ("pattern" => "/Grid Freq. : (.*)Hz/", "result" => array(array("id" => 1 ,"parameter" => "Grid Frequency","profileSuffix" => "Frequency","type" => 2))),
 
@@ -99,7 +99,7 @@ class SMA_Gateway extends IPSModule
         if (!IPS_VariableProfileExists("SMA_Temperature"))
         {
             IPS_CreateVariableProfile("SMA_Temperature", 2);
-            IPS_SetVariableProfileText("SMA_Temperature", "", " ∞C");
+            IPS_SetVariableProfileText("SMA_Temperature", "", " ¬∞C");
         }
 
 
@@ -182,7 +182,7 @@ class SMA_Gateway extends IPSModule
         IPS_LogMessage($this->moduleName,"Updating devices from '".$baseURL."'");
         $sn = false;
 
-        // Ger‰te auflisten
+        // Ger√§te auflisten
         foreach($solarLog as $solarLine)
         {
             // Aktuelles Device ermitteln
@@ -195,7 +195,7 @@ class SMA_Gateway extends IPSModule
                 continue;
             }
 
-            // So lange noch keine SN gesetzt ist, n‰chste Zeile
+            // So lange noch keine SN gesetzt ist, n√§chste Zeile
             if (!$sn)
                 continue;
 
