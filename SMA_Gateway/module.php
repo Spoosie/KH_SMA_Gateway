@@ -20,7 +20,7 @@ class SMA_Gateway extends IPSModule
                array ("pattern" => "/EToday: (.*)kWh/", "result" => array(array("id" => 1 ,"parameter" => "Energy today","profileSuffix" => "Energy","type" => 2))),
                array ("pattern" => "/ETotal: (.*)kWh/", "result" => array(array("id" => 1 ,"parameter" => "Energy total","profileSuffix" => "Energy","type" => 2))),
                array ("pattern" => "/Operation Time: (.*)h/", "result" => array(array("id" => 1 ,"parameter" => "Operation Time","profileSuffix" => "Hours","type" => 2))),
-               array ("pattern" => "/Feed-In Time: (.*)h/", "result" => array(array("id" => 1 ,"parameter" => "FeedIn Time","profileSuffix" => "Hours","type" => 2))),
+               array ("pattern" => "/Feed-In Time  : (.*)h/", "result" => array(array("id" => 1 ,"parameter" => "FeedIn Time","profileSuffix" => "Hours","type" => 2))),
 
                array ("pattern" => "/String 1 Pdc: (.*)kW - Udc: (.*)V - Idc: (.*)A/", "result" => array(array("id" => 1 ,"parameter" => "String 1 Power DC","profileSuffix" => "PowerkW","type" => 2),array("id" => 2 ,"parameter" => "String 1 Voltage DC","profileSuffix" => "Voltage","type" => 2),array("id" => 3 ,"parameter" => "String 1 Current DC","profileSuffix" => "Current","type" => 2))),
                array ("pattern" => "/String 2 Pdc: (.*)kW - Udc: (.*)V - Idc: (.*)A/", "result" => array(array("id" => 1 ,"parameter" => "String 2 Power DC","profileSuffix" => "PowerkW","type" => 2),array("id" => 2 ,"parameter" => "String 2 Voltage DC","profileSuffix" => "Voltage","type" => 2),array("id" => 3 ,"parameter" => "String 2 Current DC","profileSuffix" => "Current","type" => 2))),
