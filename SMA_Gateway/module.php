@@ -5,40 +5,40 @@ class SMA_Gateway extends IPSModule
 
     var $deviceParameter = array(
 
-               array ("pattern" => "/Device Name: (.*)/", "result" => array(array("id" => 1 ,"parameter" => "Device Name","type" => 3))),
-               array ("pattern" => "/Device Class: (.*)/", "result" => array(array("id" => 1 ,"parameter" => "Device Class","type" => 3))),
-               array ("pattern" => "/Device Type: (.*)/", "result" => array(array("id" => 1 ,"parameter" => "Device Type","type" => 3))),
-               array ("pattern" => "/Software Version: (.*)/", "result" => array(array("id" => 1 ,"parameter" => "Software Version","type" => 3))),
-               array ("pattern" => "/Serial number: (.*)/", "result" => array(array("id" => 1 ,"parameter" => "Serial Number","type" => 3))),
-               array ("pattern" => "/Device Status: (.*)/", "result" => array(array("id" => 1 ,"parameter" => "Device Status","type" => 3))),
-               array ("pattern" => "/Device Temperature: (.*)°C/", "result" => array(array("id" => 1 ,"parameter" => "Device Temperature","profileSuffix" => "Temperature","type" => 2))),
-               array ("pattern" => "/GridRelay Status: (.*)/", "result" => array(array("id" => 1 ,"parameter" => "GridRelay Status","type" => 3))),
-               array ("pattern" => "/Pac max phase 1: (.*)W/", "result" => array(array("id" => 1 ,"parameter" => "Pac max phase 1","profileSuffix" => "PowerW","type" => 2))),
-               array ("pattern" => "/Pac max phase 2: (.*)W/", "result" => array(array("id" => 1 ,"parameter" => "Pac max phase 2","profileSuffix" => "PowerW","type" => 2))),
-               array ("pattern" => "/Pac max phase 3: (.*)W/", "result" => array(array("id" => 1 ,"parameter" => "Pac max phase 3","profileSuffix" => "PowerW","type" => 2))),
+               array ("logType" => "DeviceInfos","pattern" => "/Device Name: (.*)/", "result" => array(array("id" => 1 ,"parameter" => "Device Name","type" => 3))),
+               array ("logType" => "DeviceInfos","pattern" => "/Device Class: (.*)/", "result" => array(array("id" => 1 ,"parameter" => "Device Class","type" => 3))),
+               array ("logType" => "DeviceInfos","pattern" => "/Device Type: (.*)/", "result" => array(array("id" => 1 ,"parameter" => "Device Type","type" => 3))),
+               array ("logType" => "DeviceInfos","pattern" => "/Software Version: (.*)/", "result" => array(array("id" => 1 ,"parameter" => "Software Version","type" => 3))),
+               array ("logType" => "DeviceInfos","pattern" => "/Serial number: (.*)/", "result" => array(array("id" => 1 ,"parameter" => "Serial Number","type" => 3))),
+               array ("logType" => "DeviceInfos","pattern" => "/Device Status: (.*)/", "result" => array(array("id" => 1 ,"parameter" => "Device Status","type" => 3))),
+               array ("logType" => "DeviceInfos","pattern" => "/Device Temperature: (.*)°C/", "result" => array(array("id" => 1 ,"parameter" => "Device Temperature","profileSuffix" => "Temperature","type" => 2))),
+               array ("logType" => "GridRelayStatus","pattern" => "/GridRelay Status: (.*)/", "result" => array(array("id" => 1 ,"parameter" => "GridRelay Status","type" => 3))),
+               array ("logType" => "PowerACMax1","pattern" => "/Pac max phase 1: (.*)W/", "result" => array(array("id" => 1 ,"parameter" => "Pac max phase 1","profileSuffix" => "PowerW","type" => 2))),
+               array ("logType" => "PowerACMax2","pattern" => "/Pac max phase 2: (.*)W/", "result" => array(array("id" => 1 ,"parameter" => "Pac max phase 2","profileSuffix" => "PowerW","type" => 2))),
+               array ("logType" => "PowerACMax3","pattern" => "/Pac max phase 3: (.*)W/", "result" => array(array("id" => 1 ,"parameter" => "Pac max phase 3","profileSuffix" => "PowerW","type" => 2))),
 
-               array ("pattern" => "/EToday: (.*)kWh/", "result" => array(array("id" => 1 ,"parameter" => "Energy today","profileSuffix" => "Energy","type" => 2))),
-               array ("pattern" => "/ETotal: (.*)kWh/", "result" => array(array("id" => 1 ,"parameter" => "Energy total","profileSuffix" => "Energy","type" => 2))),
-               array ("pattern" => "/Operation Time: (.*)h/", "result" => array(array("id" => 1 ,"parameter" => "Operation Time","profileSuffix" => "Hours","type" => 2))),
-               array ("pattern" => "/Feed-In Time: (.*)h/", "result" => array(array("id" => 1 ,"parameter" => "FeedIn Time","profileSuffix" => "Hours","type" => 2))),
+               array ("logType" => "EnergyStatus","pattern" => "/EToday: (.*)kWh/", "result" => array(array("id" => 1 ,"parameter" => "Energy today","profileSuffix" => "Energy","type" => 2))),
+               array ("logType" => "EnergyStatus","pattern" => "/ETotal: (.*)kWh/", "result" => array(array("id" => 1 ,"parameter" => "Energy total","profileSuffix" => "Energy","type" => 2))),
+               array ("logType" => "EnergyStatus","pattern" => "/Operation Time: (.*)h/", "result" => array(array("id" => 1 ,"parameter" => "Operation Time","profileSuffix" => "Hours","type" => 2))),
+               array ("logType" => "EnergyStatus","pattern" => "/Feed-In Time  : (.*)h/", "result" => array(array("id" => 1 ,"parameter" => "FeedIn Time","profileSuffix" => "Hours","type" => 2))),
 
-               array ("pattern" => "/String 1 Pdc: (.*)kW - Udc: (.*)V - Idc: (.*)A/", "result" => array(array("id" => 1 ,"parameter" => "String 1 Power DC","profileSuffix" => "PowerkW","type" => 2),array("id" => 2 ,"parameter" => "String 1 Voltage DC","profileSuffix" => "Voltage","type" => 2),array("id" => 3 ,"parameter" => "String 1 Current DC","profileSuffix" => "Current","type" => 2))),
-               array ("pattern" => "/String 2 Pdc: (.*)kW - Udc: (.*)V - Idc: (.*)A/", "result" => array(array("id" => 1 ,"parameter" => "String 2 Power DC","profileSuffix" => "PowerkW","type" => 2),array("id" => 2 ,"parameter" => "String 2 Voltage DC","profileSuffix" => "Voltage","type" => 2),array("id" => 3 ,"parameter" => "String 2 Current DC","profileSuffix" => "Current","type" => 2))),
+               array ("logType" => "String1PDC","pattern" => "/String 1 Pdc: (.*)kW - Udc: (.*)V - Idc: (.*)A/", "result" => array(array("id" => 1 ,"parameter" => "String 1 Power DC","profileSuffix" => "PowerkW","type" => 2),array("id" => 2 ,"parameter" => "String 1 Voltage DC","profileSuffix" => "Voltage","type" => 2),array("id" => 3 ,"parameter" => "String 1 Current DC","profileSuffix" => "Current","type" => 2))),
+               array ("logType" => "String2PDC","pattern" => "/String 2 Pdc: (.*)kW - Udc: (.*)V - Idc: (.*)A/", "result" => array(array("id" => 1 ,"parameter" => "String 2 Power DC","profileSuffix" => "PowerkW","type" => 2),array("id" => 2 ,"parameter" => "String 2 Voltage DC","profileSuffix" => "Voltage","type" => 2),array("id" => 3 ,"parameter" => "String 2 Current DC","profileSuffix" => "Current","type" => 2))),
 
-               array ("pattern" => "/Phase 1 Pac: (.*)kW - Uac: (.*)V - Iac: (.*)A/", "result" => array(array("id" => 1 ,"parameter" => "Phase 1 Power AC","profileSuffix" => "PowerkW","type" => 2),array("id" => 2 ,"parameter" => "Phase 1 Voltage AC","profileSuffix" => "Voltage","type" => 2),array("id" => 3 ,"parameter" => "Phase 1 Current AC","profileSuffix" => "Current","type" => 2))),
-               array ("pattern" => "/Phase 2 Pac: (.*)kW - Uac: (.*)V - Iac: (.*)A/", "result" => array(array("id" => 1 ,"parameter" => "Phase 2 Power AC","profileSuffix" => "PowerkW","type" => 2),array("id" => 2 ,"parameter" => "Phase 2 Voltage AC","profileSuffix" => "Voltage","type" => 2),array("id" => 3 ,"parameter" => "Phase 2 Current AC","profileSuffix" => "Current","type" => 2))),
-               array ("pattern" => "/Phase 3 Pac: (.*)kW - Uac: (.*)V - Iac: (.*)A/", "result" => array(array("id" => 1 ,"parameter" => "Phase 3 Power AC","profileSuffix" => "PowerkW","type" => 2),array("id" => 2 ,"parameter" => "Phase 3 Voltage AC","profileSuffix" => "Voltage","type" => 2),array("id" => 3 ,"parameter" => "Phase 3 Current AC","profileSuffix" => "Current","type" => 2))),
-               array ("pattern" => "/Total Pac : (.*)kW/", "result" => array(array("id" => 1 ,"parameter" => "Total Power AC","profileSuffix" => "kW","type" => 2))),
+               array ("logType" => "PowerAC1","pattern" => "/Phase 1 Pac : (.*)kW - Uac: (.*)V - Iac: (.*)A/", "result" => array(array("id" => 1 ,"parameter" => "Phase 1 Power AC","profileSuffix" => "PowerkW","type" => 2),array("id" => 2 ,"parameter" => "Phase 1 Voltage AC","profileSuffix" => "Voltage","type" => 2),array("id" => 3 ,"parameter" => "Phase 1 Current AC","profileSuffix" => "Current","type" => 2))),
+               array ("logType" => "PowerAC2","pattern" => "/Phase 2 Pac : (.*)kW - Uac: (.*)V - Iac: (.*)A/", "result" => array(array("id" => 1 ,"parameter" => "Phase 2 Power AC","profileSuffix" => "PowerkW","type" => 2),array("id" => 2 ,"parameter" => "Phase 2 Voltage AC","profileSuffix" => "Voltage","type" => 2),array("id" => 3 ,"parameter" => "Phase 2 Current AC","profileSuffix" => "Current","type" => 2))),
+               array ("logType" => "PowerAC3","pattern" => "/Phase 3 Pac : (.*)kW - Uac: (.*)V - Iac: (.*)A/", "result" => array(array("id" => 1 ,"parameter" => "Phase 3 Power AC","profileSuffix" => "PowerkW","type" => 2),array("id" => 2 ,"parameter" => "Phase 3 Voltage AC","profileSuffix" => "Voltage","type" => 2),array("id" => 3 ,"parameter" => "Phase 3 Current AC","profileSuffix" => "Current","type" => 2))),
+               array ("logType" => "PowerACSum","pattern" => "/Total Pac : (.*)kW/", "result" => array(array("id" => 1 ,"parameter" => "Total Power AC","profileSuffix" => "kW","type" => 2))),
 
-               array ("pattern" => "/Grid Freq. : (.*)Hz/", "result" => array(array("id" => 1 ,"parameter" => "Grid Frequency","profileSuffix" => "Frequency","type" => 2))),
+               array ("logType" => "GridFrequency","pattern" => "/Grid Freq. : (.*)Hz/", "result" => array(array("id" => 1 ,"parameter" => "Grid Frequency","profileSuffix" => "Frequency","type" => 2))),
 
-               array ("pattern" => "/Current Inverter Time: (.*)/", "result" => array(array("id" => 1 ,"parameter" => "Current Inverter Time","type" => 3))),
-               array ("pattern" => "/Inverter Wake-Up Time: (.*)/", "result" => array(array("id" => 1 ,"parameter" => "Inverter WakeUp Time","type" => 3))),
-               array ("pattern" => "/Inverter Sleep Time  : (.*)/", "result" => array(array("id" => 1 ,"parameter" => "Inverter Sleep Time","type" => 3))),
+               array ("logType" => "DeviceTimer","pattern" => "/Current Inverter Time: (.*)/", "result" => array(array("id" => 1 ,"parameter" => "Current Inverter Time","type" => 3))),
+               array ("logType" => "DeviceTimer","pattern" => "/Inverter Wake-Up Time: (.*)/", "result" => array(array("id" => 1 ,"parameter" => "Inverter WakeUp Time","type" => 3))),
+               array ("logType" => "DeviceTimer","pattern" => "/Inverter Sleep Time  : (.*)/", "result" => array(array("id" => 1 ,"parameter" => "Inverter Sleep Time","type" => 3))),
 
                 );
 
-
+				
     public function Create()
     {
         //Never delete this line!
@@ -102,6 +102,21 @@ class SMA_Gateway extends IPSModule
             IPS_SetVariableProfileText("SMA_Temperature", "", " °C");
         }
 
+
+		$this->RegisterPropertyBoolean("DeviceInfos",false);
+		$this->RegisterPropertyBoolean("GridRelayStatus",false);
+		$this->RegisterPropertyBoolean("PowerACMax1",false);
+		$this->RegisterPropertyBoolean("PowerACMax2",false);
+		$this->RegisterPropertyBoolean("PowerACMax3",false);
+		$this->RegisterPropertyBoolean("EnergyStatus",false);
+		$this->RegisterPropertyBoolean("String1PDC",false);
+		$this->RegisterPropertyBoolean("String2PDC",false);
+		$this->RegisterPropertyBoolean("PowerAC1",false);
+		$this->RegisterPropertyBoolean("PowerAC2",false);
+		$this->RegisterPropertyBoolean("PowerAC3",false);
+		$this->RegisterPropertyBoolean("PowerACSum",false);
+		$this->RegisterPropertyBoolean("GridFrequency",false);
+		$this->RegisterPropertyBoolean("DeviceTimer",false);
 
         // --------------------------------------------------------
         // Timer installieren
@@ -202,7 +217,11 @@ class SMA_Gateway extends IPSModule
             // Verschiedene Parameter durchgehen
             foreach($this->deviceParameter as $parameterEntry)
             {
-                preg_match($parameterEntry["pattern"],$solarLine,$result);
+				// Prüfen ob die Daten aufgezeichnet werden sollen
+				if (!$this->ReadPropertyBoolean($parameterEntry["logType"]))
+					continue;
+				
+				preg_match($parameterEntry["pattern"],$solarLine,$result);
 
                 if (!empty($result))
                 {
@@ -210,6 +229,7 @@ class SMA_Gateway extends IPSModule
 
                     foreach($parameterEntry["result"] as $resultEntry)
                     {
+						
                         $value = trim($result[$resultEntry["id"]]);
                         $ident =  "SMA".$sn.str_replace(" ","",$resultEntry["parameter"]);
                         if (isset($resultEntry["profileSuffix"]))

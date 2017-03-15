@@ -4,6 +4,24 @@
                 { "name": "SolarLogPath",        "type": "ValidationTextBox",   "caption": "Solar Log Pfad" },
                 { "name": "UpdateIntervall",     "type": "IntervalBox" ,        "caption": "Sekunden" },
                 { "name": "Debug",               "type": "CheckBox",            "caption": "Debug" },
+				{ "type": "Label", 				 "label": "--------------------------------------------------------------------------------------------------------------------------------------------" },
+				{ "type": "Label", 				 "label": "Welche Bereiche der Aufzeichnungen sollen ausgelesen werden? " },
+				{ "type": "Label", 				 "label": "--------------------------------------------------------------------------------------------------------------------------------------------" },
+    
+                { "name": "DeviceInfos",        "type": "CheckBox",     "caption": "Geräte Infos" },
+                { "name": "GridRelayStatus",    "type": "CheckBox",     "caption": "Grid Relay Status" },
+                { "name": "PowerACMax1",        "type": "CheckBox",     "caption": "Leistung Anlage AC Phase1" },
+                { "name": "PowerACMax2",        "type": "CheckBox",     "caption": "Leistung Anlage AC Phase2" },
+                { "name": "PowerACMax3",        "type": "CheckBox",     "caption": "Leistung Anlage AC Phase3" },
+                { "name": "EnergyStatus",       "type": "CheckBox",     "caption": "Wechselrichter Laufzeit(en)" },
+                { "name": "String1PDC",         "type": "CheckBox",     "caption": "String 1 Power DC" },
+                { "name": "String2PDC",         "type": "CheckBox",     "caption": "String 2 Power DC" },
+                { "name": "PowerAC1",        	"type": "CheckBox",     "caption": "String Power AC Phase1" },
+                { "name": "PowerAC2",        	"type": "CheckBox",     "caption": "String Power AC Phase2" },
+                { "name": "PowerAC3",        	"type": "CheckBox",     "caption": "String Power AC Phase3" },
+                { "name": "PowerACSum",        	"type": "CheckBox",     "caption": "String Power AC Summe" },
+                { "name": "GridFrequency",      "type": "CheckBox",     "caption": "Frequenz" },
+                { "name": "DeviceTimer",        "type": "CheckBox",     "caption": "Anlagen Laufzeit" },
 
  
         ]
