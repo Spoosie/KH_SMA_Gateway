@@ -49,7 +49,7 @@ class SMA_Gateway extends IPSModule
         // --------------------------------------------------------
         $this->RegisterPropertyString("SolarLogPath", "http://127.0.0.1/solar.log");
         $this->RegisterPropertyBoolean("Debug", false);
-        $this->RegisterPropertyInteger("UpdateIntervall", 10);
+        $this->RegisterPropertyInteger("UpdateInterval", 10);
 
         // --------------------------------------------------------
         // Variablen Profile einrichten
@@ -141,7 +141,7 @@ class SMA_Gateway extends IPSModule
         // --------------------------------------------------------
         // Timer starten
         // --------------------------------------------------------
-        $this->SetTimerInterval("UpdateTimer", $this->ReadPropertyInteger("UpdateIntervall"));
+        $this->SetTimerInterval("UpdateTimer", $this->ReadPropertyInteger("UpdateInterval")*1000);
     }
 
     public function getSolarLog()
@@ -247,34 +247,6 @@ class SMA_Gateway extends IPSModule
 
         IPS_LogMessage($this->moduleName,"done!");
 
-    }
-
-
-
-
-    protected function SetTimerInterval($Name, $Interval)
-    {
-        $id = @IPS_GetObjectIDByIdent($Name, $this->InstanceID);
-
-        if ($id === false)
-            throw new Exception('Timer not present', E_USER_WARNING);
-        if (!IPS_EventExists($id))
-            throw new Exception('Timer not present', E_USER_WARNING);
-
-        $Event = IPS_GetEvent($id);
-
-        if ($Interval < 1)
-        {
-            if ($Event['EventActive'])
-                IPS_SetEventActive($id, false);
-        }
-        else
-        {
-            if ($Event['CyclicTimeValue'] <> $Interval)
-                IPS_SetEventCyclic($id, 0, 0, 0, 0, 1, $Interval);
-            if (!$Event['EventActive'])
-                IPS_SetEventActive($id, true);
-        }
     }
 
     private function CreateCategory( $Name, $Ident = '', $ParentID = 0 )

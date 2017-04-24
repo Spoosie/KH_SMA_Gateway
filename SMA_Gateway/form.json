@@ -2,7 +2,7 @@
         "elements":
         [
                 { "name": "SolarLogPath",        "type": "ValidationTextBox",   "caption": "Solar Log Pfad" },
-                { "name": "UpdateIntervall",     "type": "IntervalBox" ,        "caption": "Sekunden" },
+                { "name": "UpdateInterval",     "type": "IntervalBox" ,        "caption": "Sekunden" },
                 { "name": "Debug",               "type": "CheckBox",            "caption": "Debug" },
 				{ "type": "Label", 				 "label": "--------------------------------------------------------------------------------------------------------------------------------------------" },
 				{ "type": "Label", 				 "label": "Welche Bereiche der Aufzeichnungen sollen ausgelesen werden? " },
